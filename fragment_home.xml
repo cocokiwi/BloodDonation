@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/HomeFragment"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".Dashboard.Home.HomeFragment">
+
+
+    <ProgressBar
+        android:id="@+id/progress_load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/filterCard"
+                android:layout_marginTop="8dp"
+                android:background="@color/black2"/>
+
+           <TextView
+               android:id="@+id/upper_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textAlignment="center"
+               android:textColor="@color/black2"
+               android:includeFontPadding="false"
+               android:textStyle="bold"
+               android:fontFamily="@font/judson_regular"
+               android:letterSpacing="0.04"
+               android:gravity="center"
+               android:layout_alignTop="@id/filterCard"
+               android:layout_marginStart="12dp"
+               android:text="Blood Requests"
+               android:textSize="19sp"/>
+
+            <TextView
+                android:id="@+id/total_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:includeFontPadding="false"
+                android:textColor="@color/blue"
+                android:layout_below="@id/upper_text"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:text="Total Request : ---"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/filterCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                app:cardElevation="5dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="3dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/btn_warning_ripple_color"
+                app:cardCornerRadius="12dp"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_regular"
+                    android:drawablePadding="6dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="6dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:text="Filter"
+                    app:drawableLeftCompat="@drawable/ic_baseline_filter_list_24" />
+
+            </androidx.cardview.widget.CardView>
+
+
+       </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="@color/btn_background_tint">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wear mask\navoid Covid"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_light"
+            android:textSize="13sp"
+            android:textColor="@color/black2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="12dp"
+            android:lineSpacingExtra="-3dp"
+            android:layout_marginBottom="10dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mapAll"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            app:cardBackgroundColor="@color/blue"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="10dp"
+            android:layout_alignParentEnd="true"
+            android:focusable="true">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/locIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_baseline_location_on_24"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:layout_toEndOf="@id/locIV"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:letterSpacing="0.03"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="See locations in map"
+                    android:textAlignment="textStart"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_plasma_request"
+                android:layout_width="match_parent"
+                android:layoutAnimation="@anim/layout_animation"
+                android:layout_height="match_parent" />
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/nodata_animation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:visibility="invisible"
+                android:layout_marginBottom="10dp"
+                android:padding="1dp"
+                android:scaleType="centerCrop"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/nodata" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    tools:context=".Dashboard.Chat.DeleteMsgFragment">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/delete_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@color/red"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:letterSpacing="0.03"
+            android:padding="10dp"
+            android:text="Delete Message"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:drawableLeftCompat="@drawable/ic_baseline_delete_24" />
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

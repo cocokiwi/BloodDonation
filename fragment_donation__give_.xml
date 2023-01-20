@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/DonationGiveFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Dashboard.Setting.Donation_Give_Fragment">
+
+    <ProgressBar
+        android:id="@+id/progress_donation_give"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_response"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="9dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/judson_bold"
+                android:letterSpacing="0.04"
+                android:padding="4dp"
+                android:text="Your Donation Responses"
+                android:textColor="@color/black"
+                android:textSize="21sp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_donation_give"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/card_response"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp" />
+
+    <FrameLayout
+        android:id="@+id/noResponse"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/card_response"
+        android:visibility="invisible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="45dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:padding="12dp"
+                app:lottie_rawRes="@raw/no_response" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="@font/poppins_regular"
+                android:includeFontPadding="false"
+                android:letterSpacing="0.06"
+                android:text="No Responses Yet"
+                android:textAlignment="center"
+                android:textColor="@color/text_color_primary"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

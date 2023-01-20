@@ -1,0 +1,154 @@
+package com.example.oneblood
+
+import android.content.Context
+import android.net.ConnectivityManager
+import android.os.Bundle
+import android.view.ActionMode
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
+import com.example.oneblood.Dashboard.Chat.ChatFragment
+import com.example.oneblood.Dashboard.Home.HomeFragment
+import com.example.oneblood.Dashboard.NoInternetFragment
+import com.example.oneblood.Dashboard.Profile.ProfileFragment
+import com.example.oneblood.Dashboard.Setting.SettingFragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.ismaeldivita.chipnavigation.ChipNavigationBar
+
+class DashboardActivity : AppCompatActivity() {
+
+    lateinit var bn : ChipNavigationBar
+    lateinit var mAuth : FirebaseAuth
+    lateinit var data : DatabaseReference
+
+
+    //Offline status for chat...
+    override fun onPause() {
+        super.onPause()
+        mAuth = FirebaseAuth.getInstance()
+        var id = mAuth.currentUser?.uid
+        data = FirebaseDatabase.getInstance().getReference("Details")
+        if (id != null) {
+            data.child(id).child("Online").setValue("0")
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkConnection()
+    }
+
+    //Online status for chat...
+    override fun onRestart() {
+        super.onRestart()
+        mAuth = FirebaseAuth.getInstance()
+        var id = mAuth.currentUser?.uid
+        data = FirebaseDatabase.getInstance().getReference("Details")
+        if (id != null) {
+            data.child(id).child("Online").setValue("1")
+        }
+    }
+
+    override fun onActionModeStarted(mode: ActionMode?) {
+        super.onActionModeStarted(mode)
+        mAuth = FirebaseAuth.getInstance()
+        var id = mAuth.currentUser?.uid
+        data = FirebaseDatabase.getInstance().getReference("Details")
+        if (id != null) {
+            data.child(id).child("Online").setValue("1")
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_dashboard)
+
+        checkConnection()
+
+        mAuth = FirebaseAuth.getInstance()
+        var id = mAuth.currentUser?.uid
+        data = FirebaseDatabase.getInstance().getReference("Details")
+        if (id != null) {
+            data.child(id).child("Online").setValue("1")
+        }
+
+
+        bn = findViewById(R.id.main_menu)
+
+
+        bn.setOnItemSelectedListener {
+            id ->
+            when (id) {
+                R.id.home -> setFragmentHome(HomeFragment())
+                R.id.chat -> setFragmentChat(ChatFragment())
+                R.id.profile -> setFragmentProfile(ProfileFragment())
+                R.id.settings -> setFragmentSetting(SettingFragment())
+
+            }
+        }
+
+         setFragmentHome(HomeFragment())
+
+    }
+
+    private fun setFragmentHome(loginFragment: HomeFragment) {
+        var ft: FragmentTransaction = supportFragmentManager.beginTransaction();
+        ft.replace(R.id.main_dashboard_frame,loginFragment)
+        ft.commit()
+    }
+
+    private fun setFragmentChat(loginFragment: ChatFragment) {
+        var ft: FragmentTransaction = supportFragmentManager.beginTransaction();
+        ft.replace(R.id.main_dashboard_frame,loginFragment)
+        ft.commit()
+    }
+
+    private fun setFragmentProfile(loginFragment: ProfileFragment) {
+        var ft: FragmentTransaction = supportFragmentManager.beginTransaction();
+        ft.replace(R.id.main_dashboard_frame,loginFragment)
+        ft.commit()
+    }
+
+    private fun setFragmentSetting(loginFragment: SettingFragment) {
+        var ft: FragmentTransaction = supportFragmentManager.beginTransaction();
+        ft.replace(R.id.main_dashboard_frame,loginFragment)
+        ft.commit()
+    }
+
+
+    private fun setFragmentnoInternet(loginFragment: NoInternetFragment) {
+        var ft: FragmentTransaction = supportFragmentManager.beginTransaction();
+        ft.replace(R.id.main_dashboard_frame,loginFragment)
+        ft.commit()
+    }
+
+    private fun checkConnection() {
+        val manager = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfor = manager.activeNetworkInfo
+
+
+        bn = findViewById(R.id.main_menu)
+
+        bn.visibility = View.VISIBLE
+
+
+        if (networkInfor != null) {
+            if(networkInfor.type != ConnectivityManager.TYPE_WIFI && networkInfor.type != ConnectivityManager.TYPE_MOBILE) {
+                bn.visibility = View.INVISIBLE
+                setFragmentnoInternet(NoInternetFragment())
+            }
+        }
+        else{
+            bn.visibility = View.INVISIBLE
+            setFragmentnoInternet(NoInternetFragment())
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
+
+}

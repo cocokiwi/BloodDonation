@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layoutAnimation="@anim/layout_animation"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="16dp"
+            android:src="@drawable/blood_drop"
+            android:layout_alignTop="@id/bR"
+            android:layout_alignBottom="@id/bR"
+            android:layout_marginStart="10dp"
+            android:id="@+id/bloodDrop"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blood Request"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"
+            android:layout_toEndOf="@id/bloodDrop"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="6dp"
+            android:layout_alignParentTop="true"
+            android:id="@+id/bR"/>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_below="@id/bR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Patient name: "
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="14sp"
+                android:letterSpacing="0.02"
+                android:textColor="@color/black"
+                android:includeFontPadding="false"/>
+            <TextView
+                android:id="@+id/User_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:letterSpacing="0.02"
+                android:includeFontPadding="false"
+                android:hint="Golap"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/User_Blood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:text="O+"
+            android:padding="4dp"
+            android:background="@drawable/fill_background2"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+
+        <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="12dp">
+
+            <ImageView
+                android:id="@+id/locPin"
+                android:layout_width="20dp"
+                android:layout_height="22dp"
+                android:src="@drawable/mini_location"
+                android:layout_centerVertical="true"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/locPin"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/User_State"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="State"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black2"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/User_City"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:includeFontPadding="false"
+                    android:text="City"
+                    android:textColor="@color/black2"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Message_card"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/red_light"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                android:focusable="true"
+                android:layout_gravity="center"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/poppins_regular"
+                        android:letterSpacing="0.02"
+                        android:includeFontPadding="false"
+                        android:text="Message"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

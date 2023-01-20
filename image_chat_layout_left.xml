@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="2dp"
+        android:visibility="visible"
+        android:padding="2dp"
+        android:background="@color/btn_background_tint"
+        android:adjustViewBounds="true"
+        android:layout_marginStart="8dp"
+        android:scaleType="fitCenter"/>
+
+
+    <TextView
+        android:id="@+id/replied_message"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/tick"
+        android:layout_width="wrap_content"
+        android:layout_height="13dp"
+        android:visibility="invisible"
+        android:layout_below="@+id/text"
+        android:layout_marginEnd="6dp"
+        android:layout_alignParentStart="true"
+        app:drawableEndCompat="@drawable/ic_baseline_check_24" />
+
+    <TextView
+        android:id="@+id/tick2"
+        android:layout_width="wrap_content"
+        android:layout_height="13dp"
+        android:visibility="invisible"
+        android:layout_marginStart="4dp"
+        android:layout_below="@+id/text"
+        android:layout_alignParentStart="true"
+        app:drawableEndCompat="@drawable/ic_baseline_check_24" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="225dp"
+        android:visibility="invisible"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:layout_marginStart="8dp"
+        android:textIsSelectable="true"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/poppins_regular"
+        android:includeFontPadding="false"
+        android:letterSpacing="0.02"
+        android:background="@drawable/background_left"
+        android:textColor="@color/black2"
+        android:padding="10dp"
+        android:text="About Image"/>
+
+
+    <ImageView
+        android:id="@+id/reply_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/ic_baseline_reply_24"
+        android:layout_toEndOf="@+id/text"/>
+
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_below="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5:36 AM "
+        android:textSize="10dp"
+        android:textColor="@color/text_color_primary"
+        android:fontFamily="@font/poppins_italic"
+        android:includeFontPadding="false"
+        android:minWidth="100dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginStart="20dp"/>
+
+</RelativeLayout>
